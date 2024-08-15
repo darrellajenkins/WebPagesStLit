@@ -17,7 +17,10 @@ def write(todos_arg):
 
 def add_todo():
     task = st.session_state["add_todo"] + "\n"
-    todos.append(task)
+    if task in todos:
+        todos.append(task)
+    else:
+        todos.append(task)
     write(todos)
     st.session_state["add_todo"] = ""
 
